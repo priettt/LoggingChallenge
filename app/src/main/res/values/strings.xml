@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">LoggingChallenge</string>
+    <string name="main_screen_title">Logging</string>
+    <string name="main_screen_button">Submit log</string>
+</resources>
