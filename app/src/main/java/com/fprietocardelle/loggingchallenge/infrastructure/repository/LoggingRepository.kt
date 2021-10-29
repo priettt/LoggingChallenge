@@ -1,4 +1,4 @@
-package com.fprietocardelle.loggingchallenge.infrastructure.network
+package com.fprietocardelle.loggingchallenge.infrastructure.repository
 
 import javax.inject.Inject
 

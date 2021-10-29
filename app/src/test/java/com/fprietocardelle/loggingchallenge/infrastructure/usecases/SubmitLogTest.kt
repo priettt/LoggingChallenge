@@ -1,7 +1,6 @@
 package com.fprietocardelle.loggingchallenge.infrastructure.usecases
 
-import com.fprietocardelle.loggingchallenge.infrastructure.network.LoggingRepository
-import com.fprietocardelle.loggingchallenge.infrastructure.tools.LoggingLimiters
+import com.fprietocardelle.loggingchallenge.infrastructure.repository.LoggingRepository
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
@@ -9,12 +8,12 @@ import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class SubmitLogTest {
-    private val mockLoggingLimiters = mockk<LoggingLimiters>(relaxed = true)
+    private val mockIsLoggingAllowed = mockk<IsLoggingAllowed>(relaxed = true)
     private val mockLoggingRepository = mockk<LoggingRepository>(relaxed = true)
 
     private val testMessage = "Hello"
 
-    private var submitLog = SubmitLog(mockLoggingLimiters, mockLoggingRepository)
+    private var submitLog = SubmitLog(mockIsLoggingAllowed, mockLoggingRepository)
 
     @Test
     fun `message can not be logged`() {
@@ -32,11 +31,11 @@ class SubmitLogTest {
     }
 
     private fun givenMessageCanNotBeLogged() {
-        every { mockLoggingLimiters.canLog(any()) } returns false
+        every { mockIsLoggingAllowed(any()) } returns false
     }
 
     private fun givenMessageCanBeLogged() {
-        every { mockLoggingLimiters.canLog(any()) } returns true
+        every { mockIsLoggingAllowed(any()) } returns true
     }
 
     private fun whenInvokingSubmitLog(): Result<Unit> = submitLog(testMessage)

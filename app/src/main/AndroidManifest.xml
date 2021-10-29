@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoggingChallenge">
         <activity
-            android:name=".ui.main.MainActivity"
+            android:name=".ui.MainActivity"
             android:windowSoftInputMode="adjustResize"
             android:exported="true">
             <intent-filter>
