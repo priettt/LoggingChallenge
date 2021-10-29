@@ -5,32 +5,61 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".ui.main.MainFragment">
 
     <TextView
         android:id="@+id/mainScreenTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/main_screen_title"
-        android:textAlignment="center"
-        android:textSize="32sp"
         android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toTopOf="@id/mainScreenButton"
+        android:gravity="center"
+        android:text="@string/main_screen_title"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toTopOf="@id/mainScreenTextInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="spread_inside" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/mainScreenTextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="40dp"
+        app:layout_constraintBottom_toTopOf="@id/mainScreenLogStatus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mainScreenTitle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/mainScreenLogStatus"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/main_screen_no_status"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@id/mainScreenButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mainScreenTextInputLayout" />
 
     <Button
         android:id="@+id/mainScreenButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/main_screen_button"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mainScreenTitle" />
+        app:layout_constraintTop_toBottomOf="@id/mainScreenLogStatus" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

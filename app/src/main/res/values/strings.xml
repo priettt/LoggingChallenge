@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">LoggingChallenge</string>
     <string name="main_screen_title">Logging</string>
+    <string name="main_screen_no_status">Submit a log to see a status.</string>
+    <string name="main_screen_successful_log">The log was successful! :)</string>
+    <string name="main_screen_unsuccessful_log">Not logged :(</string>
     <string name="main_screen_button">Submit log</string>
 </resources>

@@ -1,8 +1,8 @@
-package com.fprietocardelle.loggingchallenge
+package com.fprietocardelle.loggingchallenge.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.fprietocardelle.loggingchallenge.ui.main.MainFragment
+import com.fprietocardelle.loggingchallenge.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
