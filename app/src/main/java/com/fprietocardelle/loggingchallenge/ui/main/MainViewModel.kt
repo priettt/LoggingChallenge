@@ -18,7 +18,7 @@ class MainViewModel @Inject constructor(
     private val eventChannel = Channel<Event>(Channel.BUFFERED)
     val events = eventChannel.receiveAsFlow()
 
-    fun onLogButtonPressed(message: String?) {
+    fun onLogButtonPressed(message: String) {
         sendEvent(EventLogged(submitLog(message).isSuccess))
     }
 
