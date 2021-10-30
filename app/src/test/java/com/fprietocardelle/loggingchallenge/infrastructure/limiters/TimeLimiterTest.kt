@@ -8,7 +8,7 @@ import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 
-class TimeLoggingLimiterTest {
+class TimeLimiterTest {
     private val testMessage = "test"
     private val creationTime = 100L
     private val testTimeLimit = 5000L
@@ -17,12 +17,12 @@ class TimeLoggingLimiterTest {
 
     private val mockGetCurrentTimeInMilliseconds = mockk<GetCurrentTimeInMilliseconds>(relaxed = true)
 
-    private lateinit var timeLoggingLimiter: TimeLoggingLimiter
+    private lateinit var timeLimiter: TimeLimiter
 
     @Before
     fun setUp() {
         every { mockGetCurrentTimeInMilliseconds() } returns creationTime
-        timeLoggingLimiter = TimeLoggingLimiter(testTimeLimit, mockGetCurrentTimeInMilliseconds)
+        timeLimiter = TimeLimiter(testTimeLimit, mockGetCurrentTimeInMilliseconds)
     }
 
     @Test
@@ -39,11 +39,11 @@ class TimeLoggingLimiterTest {
 
     private fun whenCanLogCalledAfterLimit(): Boolean {
         every { mockGetCurrentTimeInMilliseconds() } returns pastLimitCreationTime
-        return timeLoggingLimiter.canLog(testMessage)
+        return timeLimiter.canLog(testMessage)
     }
 
     private fun whenCanLogCalledBeforeLimit(): Boolean {
         every { mockGetCurrentTimeInMilliseconds() } returns beforeLimitCreationTime
-        return timeLoggingLimiter.canLog(testMessage)
+        return timeLimiter.canLog(testMessage)
     }
 }

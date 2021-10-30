@@ -9,7 +9,7 @@ import javax.inject.Inject
     For instance, if the interval is 500ms, it will only allow a single log every 500ms.
  */
 
-class TimeLoggingLimiter @Inject constructor(
+class TimeLimiter @Inject constructor(
     private val timeLimitInMilliseconds: Long,
     private val getCurrentTime: GetCurrentTimeInMilliseconds
 ) : LoggingLimiter {
