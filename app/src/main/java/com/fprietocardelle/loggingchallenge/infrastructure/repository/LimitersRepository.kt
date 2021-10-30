@@ -9,7 +9,4 @@ class LimitersRepository @Inject constructor() {
 
     fun getLimiters() = limiters.toList()
 
-    fun storeLimiters(limiters: List<LoggingLimiter>) {
-        this.limiters = limiters.toMutableList()
-    }
 }
